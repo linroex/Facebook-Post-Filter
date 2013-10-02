@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "Facebook Post Filter",
+  "description": "This Extension can use keyword to filter you facebook post",
+  "version": "0.2",
+
+  "permissions": [
+    "https://www.facebook.com/*",
+    "storage"
+  ],
+  "content_scripts": [{
+    "matches": ["https://www.facebook.com/*"],
+    "js": ["jquery-1.10.2.min.js","script.js"]
+  }],
+  "web_accessible_resources": [
+    "jquery-1.10.2.min.js"
+  ],
+  "browser_action":{
+    "default_icon":"Block-icon.png",
+    "default_popup":"setting.html"
+  }
+}
