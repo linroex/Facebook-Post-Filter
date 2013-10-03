@@ -3,15 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        body{
+            width:300px;
+        }
+        .btn-group{
+            margin-top:5px;
+        }
+    </style>
 </head>
 <body>
     <script src="jquery-1.10.2.min.js"></script>
     <script src="popup.js"></script>
+    
+        <div class="panel">
+            <div class="panel-heading">Facebook Post Filter</div>
+            <div class="panel-body">
+                
+                <div class="alert alert-success">
+                    請將要阻擋的關鍵字輸入在下方，一行一筆資料
+                </div>
+                
+                <form action="">
+                    
+                    <textarea class="form-control" cols="30" rows="10"></textarea>
+                    <div class="btn-group btn-group-justified">
+                        
+                        <a class="btn btn-primary" id="submit">儲存</a>
+                        <a class="btn btn-default" id="switcher">停用</a>
 
-    <form action="">
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <input type="button" value="送出" id="submit">
-    </form>
+                    </div>
+                    
+                    
+                </form>        
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    
+    
 </body>
 </html>
