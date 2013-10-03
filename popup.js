@@ -3,27 +3,22 @@ $(document).ready(function(){
         $('textarea').html(r['block.keyword']);
     });
     chrome.storage.sync.get('switcher',function(e){
-        
         if(e['switcher']=='on'){
             $('#switcher').html('停用');
-            
         }else if(e['switcher']=='off'){
             $('#switcher').html('啟用');
-            
         }
     });
     $('#submit').click(function(){
         chrome.storage.sync.set({'block.keyword':$('textarea').val()},function(){
             chrome.storage.sync.get('block.keyword',function(r){
                 $('textarea').html(r['block.keyword']);
+                window.close();
             })    
         });
-        
-            
     })
     $('#switcher').click(function(){
         chrome.storage.sync.get('switcher',function(e){
-            
             if(e['switcher']=='on'){
                 $('#switcher').html('啟用');
                 chrome.storage.sync.set({'switcher':'off'});
@@ -31,7 +26,8 @@ $(document).ready(function(){
                 $('#switcher').html('停用');
                 chrome.storage.sync.set({'switcher':'on'});
             }
+            $('.notice').css('display','block');
+            $('.notice').html('重新整理頁面後方會啟用');
         });
-        
     });
 })

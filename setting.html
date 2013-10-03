@@ -8,7 +8,7 @@
         body{
             width:300px;
         }
-        .btn-group{
+        .btn-group,.notice{
             margin-top:5px;
         }
     </style>
@@ -22,21 +22,18 @@
             <div class="panel-body">
                 
                 <div class="alert alert-success">
-                    請將要阻擋的關鍵字輸入在下方，一行一筆資料
+
+                    請輸入在facebook上你不想看到貼文的主要關鍵字唷! (例如不想看到黃色小鴨的貼文，則輸入「黃色小鴨」)
                 </div>
-                
                 <form action="">
-                    
                     <textarea class="form-control" cols="30" rows="10"></textarea>
                     <div class="btn-group btn-group-justified">
                         
                         <a class="btn btn-primary" id="submit">儲存</a>
                         <a class="btn btn-default" id="switcher">停用</a>
-
                     </div>
-                    
-                    
                 </form>        
+                <div class="alert alert-warning notice" style="display:none;"></div>
                 <div class="clearfix"></div>
             </div>
         </div>
