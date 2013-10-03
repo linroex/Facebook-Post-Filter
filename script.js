@@ -1,15 +1,19 @@
 $(document).ready(function(){
     chrome.storage.sync.get('switcher',function(e){
+        console.log('Load Facebook Post Filter');  
+        filter();  
+        
         if(e['switcher']=='on'){
-            console.log('Load Facebook Post Filter');    
-            filter();
-            window.setInterval('filter()',3000);        
+            $("#contentArea").bind("DOMNodeInserted",function(){
+                filter();
+            });
         }else if(e['switcher']==undefined){
             chrome.storage.sync.set({'switcher':'on'});
             chrome.storage.sync.set({'block.keyword':''});
-        }
-    });
+        };
+    })
 })
+
 function filter(){
     chrome.storage.sync.get('block.keyword',function(r){
         if(r['block.keyword'].trim()!=''){

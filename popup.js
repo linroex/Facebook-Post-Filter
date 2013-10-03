@@ -13,6 +13,7 @@ $(document).ready(function(){
         chrome.storage.sync.set({'block.keyword':$('textarea').val()},function(){
             chrome.storage.sync.get('block.keyword',function(r){
                 $('textarea').html(r['block.keyword']);
+                chrome.tabs.reload();
                 window.close();
             })    
         });

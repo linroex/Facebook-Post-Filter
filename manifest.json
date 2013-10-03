@@ -18,6 +18,7 @@
   ],
   "browser_action":{
     "default_icon":"Block-icon.png",
-    "default_popup":"setting.html"
+    "default_popup":"setting.html",
+    "default_title":"Facebook Post Filter"
   }
 }
