@@ -9,7 +9,7 @@ $(document).ready(function(){
             });
         }else if(e['switcher']==undefined){
             chrome.storage.sync.set({'switcher':'on'});
-            chrome.storage.sync.set({'block.keyword':''});
+            
         };
     })
 })
