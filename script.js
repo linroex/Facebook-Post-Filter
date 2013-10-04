@@ -1,9 +1,10 @@
 $(document).ready(function(){
     chrome.storage.sync.get('switcher',function(e){
-        console.log('Load Facebook Post Filter');  
-        filter();  
+          
         
         if(e['switcher']=='on'){
+            console.log('Load Facebook Post Filter');  
+            filter();
             $("#contentArea").bind("DOMNodeInserted",function(){
                 filter();
             });
