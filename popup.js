@@ -2,6 +2,7 @@ $(document).ready(function(){
     chrome.storage.sync.get('block.keyword',function(r){
         $('textarea').html(r['block.keyword']);
     });
+
     chrome.storage.sync.get('switcher',function(e){
         if(e['switcher']=='on'){
             $('#switcher').html('停用');
@@ -9,12 +10,15 @@ $(document).ready(function(){
             $('#switcher').html('啟用');
         }
     });
+
     chrome.storage.sync.get('fullFilter',function(e){
         $('#fullFilter').prop('checked', e['fullFilter']);
     });
-    chrome.storage.sync.get('fullFilter',function(e){
+
+    chrome.storage.sync.get('adsFilter',function(e){
         $('#adsFilter').prop('checked', e['adsFilter']);
     });
+
     $('#submit').click(function(){
         chrome.storage.sync.set({'block.keyword':$('textarea').val()},function(){
             chrome.storage.sync.get('block.keyword',function(r){
@@ -24,6 +28,7 @@ $(document).ready(function(){
             })    
         });
     })
+
     $('#switcher').click(function(){
         chrome.storage.sync.get('switcher',function(e){
             if(e['switcher']=='on'){
