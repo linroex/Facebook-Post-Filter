@@ -1,39 +1,39 @@
 $(document).ready(function(){
     chrome.storage.sync.get(['switcher', 'fullFilter', 'adsFilter'], function(e) {
-        if (e['fullFilter'] == undefined) {
+        if (e['fullFilter'] === undefined) {
              chrome.storage.sync.set({
                  'fullFilter': $('#fullFilter').prop('checked')
              });
         }
 
-        if (e['adsFilter'] == undefined) {
+        if (e['adsFilter'] === undefined) {
             chrome.storage.sync.set({
                 'adsFilter': $('#adsFilter').prop('checked')
             });
         }
 
-        if(e['switcher'] == 'on'){
+        if(e['switcher'] === 'on') {
             console.log('Load Facebook Post Filter');  
             filter();
             $(document).bind("DOMSubtreeModified", function() {
                 $(document).ready(function() {
-                  filter();
+                    filter();
                 });
             });
 
-        } else if(e['switcher'] == undefined){
+        } else if(e['switcher'] === undefined) {
             chrome.storage.sync.set({'switcher':'on'});
         };
     });
 });
 
 function filter() {
-    chrome.storage.sync.get(['block.keyword', 'fullFilter', 'adsFilter'],function(r){
+    chrome.storage.sync.get(['block.keyword', 'fullFilter', 'adsFilter'],function(r) {
         if (r['adsFilter']) {
             $('.ego_column').fadeOut();
         }
 
-        if(r['block.keyword'] != ''){
+        if(r['block.keyword'] !== ''){
             var keyword = r['block.keyword'].split(/[\s,]+/);
             for (var i = 0; i<keyword.length; i++) {
                 $('._5jmm:contains("' + keyword[i] + '")').fadeOut();
@@ -43,7 +43,6 @@ function filter() {
                     $('.permalink_stream:contains("' + keyword[i] + '")').fadeOut();
                 }
             };    
-
         }
     });
 }
