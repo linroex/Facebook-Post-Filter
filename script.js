@@ -1,9 +1,3 @@
-$(document).bind("DOMNodeInserted", function() {
-    $(document).ready(function() {
-        filter();
-    });
-});
-
 $(document).ready(function(){
     chrome.storage.sync.get(['switcher', 'fullFilter', 'adsFilter'], function(e) {
         if (e['fullFilter'] == undefined) {
@@ -13,17 +7,20 @@ $(document).ready(function(){
         }
 
         if (e['adsFilter'] == undefined) {
-             chrome.storage.sync.set({
-                 'adsFilter': $('#adsFilter').prop('checked')
-             });
+            chrome.storage.sync.set({
+                'adsFilter': $('#adsFilter').prop('checked')
+            });
         }
 
         if(e['switcher'] == 'on'){
             console.log('Load Facebook Post Filter');  
             filter();
-            $("#contentArea").bind("DOMNodeInserted",function(){
-                filter();
+            $(document).bind("DOMSubtreeModified", function() {
+                $(document).ready(function() {
+                  filter();
+                });
             });
+
         } else if(e['switcher'] == undefined){
             chrome.storage.sync.set({'switcher':'on'});
         };
