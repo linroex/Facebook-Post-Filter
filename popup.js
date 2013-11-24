@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     chrome.storage.sync.get('block.keyword', function(r) {
         $('textarea').html(r['block.keyword']);
     });
@@ -11,11 +11,11 @@ $(document).ready(function(){
         }
     });
 
-    chrome.storage.sync.get('fullFilter',function(e){
+    chrome.storage.sync.get('fullFilter', function(e) {
         $('#fullFilter').prop('checked', e['fullFilter']);
     });
 
-    chrome.storage.sync.get('adsFilter',function(e){
+    chrome.storage.sync.get('adsFilter', function(e) {
         $('#adsFilter').prop('checked', e['adsFilter']);
     });
 

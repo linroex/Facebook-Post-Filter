@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     chrome.storage.sync.get(['switcher', 'fullFilter', 'adsFilter'], function(e) {
         if (e['fullFilter'] === undefined) {
              chrome.storage.sync.set({
@@ -33,7 +33,7 @@ function filter() {
             $('.ego_column').fadeOut();
         }
 
-        if(r['block.keyword'] !== ''){
+        if(r['block.keyword'].trin() !== '') {
             var keyword = r['block.keyword'].split(/[\s,]+/);
             for (var i = 0; i<keyword.length; i++) {
                 $('._5jmm:contains("' + keyword[i] + '")').fadeOut();
