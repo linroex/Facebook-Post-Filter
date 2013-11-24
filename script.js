@@ -33,7 +33,7 @@ function filter() {
             $('.ego_column').fadeOut();
         }
 
-        if(r['block.keyword'].trin() !== '') {
+        if(r['block.keyword'].trim() !== '') {
             var keyword = r['block.keyword'].split(/[\s,]+/);
             for (var i = 0; i<keyword.length; i++) {
                 $('._5jmm:contains("' + keyword[i] + '")').fadeOut();
